@@ -78,6 +78,9 @@ class PDF
             $outputPath
         ]);
 
+        $process->setIdleTimeout(120);
+        $process->setTimeout(120);
+
         $process->run();
 
         if (!$process->isSuccessful()) {
