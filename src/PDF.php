@@ -16,6 +16,8 @@ class PDF
     private $splitPdfBinPath = BinPath::SPLIT_PDF_PATH;
 
     private $path;
+    
+    private $timeout = 60;
 
     public function setPath(string $path): self
     {
@@ -35,6 +37,13 @@ class PDF
     {
         $this->splitPdfBinPath = $splitPdfBinPath;
 
+        return $this;
+    }
+    
+    public function setTimeout(int $timeout): self
+    {
+        $this->timeout = $timeout;
+        
         return $this;
     }
 
@@ -78,8 +87,8 @@ class PDF
             $outputPath
         ]);
 
-        $process->setIdleTimeout(120);
-        $process->setTimeout(120);
+        $process->setIdleTimeout($this->timeout);
+        $process->setTimeout($this->timeout);
 
         $process->run();
 
