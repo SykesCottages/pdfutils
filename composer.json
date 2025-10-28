@@ -1,7 +1,7 @@
 {
     "name": "sykescottages/pdfutils",
     "require": {
-        "symfony/process": "^7.1.1"
+        "symfony/process": "^5.4.46"
     },
     "autoload": {
         "psr-4": {
